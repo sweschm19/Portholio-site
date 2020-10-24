@@ -1,0 +1,57 @@
+ @charset "utf-8";
+             #global_navi ul{
+                 list-style-type: none;
+                 margin:0;
+                 padding:0;
+                 display:flex;
+                 border-left: 1px solid #008b8b;
+                 
+             }
+             
+             #global_navi ul li{
+                 border-right: 1px solid #008b8b;
+                  }
+             
+             #global_navi ul li a{
+                 display:block;
+                 padding: 6px 20px;
+             }
+             h1{
+                 background-color:aqua;
+                 padding:20px;
+                 border-right: solid#000000;
+                 border-left: solid#000000;
+             }
+             
+             h2{
+                 color:darkblue;
+             }
+             
+             h3,h4{
+             color: black;
+                 
+             }
+             p{
+                 line-height: 1.5;
+                 text-indent: inherit;
+             }
+            
+        .main{
+            width:1200px;
+            height:900px;
+            background-color:lightgray;
+             }
+             .subarea{
+              width:900px;
+            height:10px;
+            background-color:#008b8b;   
+                    
+             } 
+             
+         .footer{
+        width:1200px;
+        height:10px;     
+        background-color: blue;
+            
+        }    
+        
