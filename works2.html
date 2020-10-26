@@ -22,8 +22,8 @@
     <div id ="app" class="container">
     <h2>todo</h2>
     <p>
-        Count{{todos.length}}todo list中{{remaining}}件
-        
+        全{{todos.length}}件中残り{{remaining}}件
+        <button v-on:click="archive"class="btn-danger btn-xs">整理する</button>
     </p>    
         <ul class="list-unstyled">
             <li v-for="todo in todos">
@@ -32,10 +32,11 @@
                     <span v-bind:class="{'done':todo.done}">{{todo.text}}</span>
     
                 </label>    
+                <button class="btn btn-warning" btn-xs>削除する</button>
             </li>
         </ul>
     <p><input type ="text" v-model="todoText" placeholder="add a new todo here" ></p>
-    <button v-on:click="addTodo()" class="btn btn-primary btn-sm">add as</button>
+    <button v-on:click="removeTodo(todo)" class="btn btn-primary btn-sm">追加する</button>
     <br>
     {{todoText}}
     </div>
@@ -46,7 +47,7 @@
             todoText:'',        	
         	todos:[
         	{text:'Master business English',  done: true},
-        	{text:'working on abroad',done: false}
+        	{text:'working on abroad',done: false} 
         	]
         },
         methods:{
@@ -57,6 +58,20 @@
  					{text:newTodo,  done: false}
  				) ;   
  				this.todoText ='';   
+               },
+            removeTodo:function(todo){
+                var index = this.todos.indexOf(todo);
+                this.todos.splice(index, i);
+            },
+               archive:function(){
+                   var remains =[];
+                   for(var i =0; i <this.todos.length; i++) {
+                    var todo = this.todos[i]
+                    if(!todo.done) {
+                        remains.push(todo);
+                     } 
+                   }
+                   this.todos = remains;
                }
             },
         computed:{
